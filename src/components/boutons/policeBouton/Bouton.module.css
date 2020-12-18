@@ -1,5 +1,14 @@
 .policeBouton{
-    font-size: 20px;
+    width: 90px;
+    height:45px;
+    font-size: 1.2em;
+    font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     margin-right: 5px;
     margin-left:10px;
+    border-radius: 10px;
+    font-style: italic;
+    background-color:rebeccapurple;
+    color:white;
+
 }

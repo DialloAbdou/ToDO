@@ -1,6 +1,12 @@
 import React from 'react'
-const Imput=({placeholder})=>(
-    <input type="text"  placeholder={placeholder}/>
-)
+import classes from './policeImput/Imput.module.css'
+const Imput=({placeholder})=>{
+    const imputCss =`${classes.policeImpute}`
+    return(
+        <input className={imputCss}  type="text" placeholder={placeholder}/>
+    )
+}
+  
+
 
 export default Imput
