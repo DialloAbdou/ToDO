@@ -1,18 +1,17 @@
-import React, {Component} from'react'
-
-class App extends Component{
-  render() {
-     return(
-        <div className="container">
-         <h1>Todo Liste</h1>
-         <input type="text" placeholder="Task"/>
-         <button>ADD</button>
-         <button>CLEAR</button>
-         <input type="text" placeholder="Task"/>
-         
-        </div>
-     )
-  }
+import React, { Component } from 'react'
+import Task from './containers/Task/Task'
+import Titre from './components/Titre/Titre'
+import Imput from './components/combos/Imput/Imput'
+import Bouton from './components/boutons/Bouton'
+class App extends Component {
+   render() {
+      return (
+         <div className="container">
+            <Titre>TODO LISTE</Titre>
+              <Task />
+         </div>
+      )
+   }
 }
 
 export default App;
