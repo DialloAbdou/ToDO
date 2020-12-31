@@ -13,8 +13,15 @@ class Tasks extends Component {
             { id: 3, nom: "Faire C#", unite: 3 },
             { id: 4, nom: "Faire JavaScript", unite: 4 },
             { id: 5, nom: "Faire Sport", unite: 2 },
-
         ]
+    }
+    handleDeletTask =(id)=>{  
+       const taskId = this.state.tasks.findIndex(elem=>{
+           return (elem.id === id);
+       })
+       const newTasks = [...this.state.tasks];
+         newTasks.splice(taskId,1)
+       this.setState({tasks:newTasks});
     }
 
     render() {
@@ -42,6 +49,7 @@ class Tasks extends Component {
                                    <Task
                                      nom ={t.nom}
                                      unite={t.unite}
+                                     supprimer={()=>this.handleDeletTask(t.id)}
                                     />
                                  </tr>
                                 // <tr key={t.id}>
