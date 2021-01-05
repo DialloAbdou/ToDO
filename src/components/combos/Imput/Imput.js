@@ -6,7 +6,4 @@ const Imput=({placeholder})=>{
         <input className={imputCss}  type="text" placeholder={placeholder}/>
     )
 }
-  
-
-
 export default Imput
