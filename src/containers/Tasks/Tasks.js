@@ -13,7 +13,9 @@ class Tasks extends Component {
             { id: 3, nom: "Faire C#", unite: 3 },
             { id: 4, nom: "Faire JavaScript", unite: 4 },
             { id: 5, nom: "Faire Sport", unite: 2 },
-        ]
+        ],
+        indextache:5,
+       tacheSaisie:""
     }
     handleDeletTask =(id)=>{  
        const taskId = this.state.tasks.findIndex(elem=>{
@@ -23,14 +25,38 @@ class Tasks extends Component {
          newTasks.splice(taskId,1)
        this.setState({tasks:newTasks});
     }
-
+    handleAddTask =()=>{
+        const newTache = {
+            id: this.state.indextache+1,
+            nom: this.state.tacheSaisie,
+            unite: 3
+        }
+      const newTabs = [...this.state.tasks]
+      newTabs.push(newTache);
+      this.setState(oldstate=>{
+          return {
+            tasks: newTabs,
+            indextache: oldstate.indextache+1
+          }
+      })
+      this.setState({ tacheSaisie:""})
+    
+    }
     render() {
         const { tasks } = this.state
         const taskCss = `${classes.tacheCss} table table-striped table-dark`
         return (
             <div className="container taskPolice">
-                <Imput placeholder="Nouvelle Tache" />
-                <Bouton>ADD</Bouton>
+                <Imput 
+                value={this.state.tacheSaisie}
+                changeName={(event)=>this.setState({tacheSaisie:event.target.value})}
+                />
+                <Bouton
+                 click ={this.handleAddTask}
+                
+                >
+                  ADD
+                </Bouton>
                 <Bouton>CLEAR</Bouton>
                 <Imput placeholder="tableau format JSon " />
                 <Bouton>LOAD</Bouton>
