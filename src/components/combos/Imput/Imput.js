@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './policeImput/Imput.module.css'
-const Imput=({placeholder, changeName})=>{
+const Imput=({placeholder, changeName, onkey})=>{
     const imputCss =`${classes.policeImpute}`
     return(
         <input 
@@ -8,6 +8,7 @@ const Imput=({placeholder, changeName})=>{
          type="text" 
          placeholder={placeholder}
          onChange={changeName}
+         onKeyDown={onkey}
         
         />
     )

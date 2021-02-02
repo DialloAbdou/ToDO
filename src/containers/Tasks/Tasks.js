@@ -15,16 +15,20 @@ class Tasks extends Component {
             { id: 5, nom: "Faire Sport", unite: 2 },
         ],
         indextache:5,
-       tacheSaisie:""
+        tacheSaisie:""
     }
     handleDeletTask =(id)=>{  
        const taskId = this.state.tasks.findIndex(elem=>{
            return (elem.id === id);
        })
+
        const newTasks = [...this.state.tasks];
          newTasks.splice(taskId,1)
        this.setState({tasks:newTasks});
     }
+    /**
+     * Elle permet ajouter des taches dans le tableau
+     */
     handleAddTask =()=>{
         const newTache = {
             id: this.state.indextache+1,
@@ -42,14 +46,23 @@ class Tasks extends Component {
       this.setState({ tacheSaisie:""})
     
     }
+    /***
+     * ========handleKeyDown====
+     */
+    handleKeyDown =(event)=>{
+        if(event.key === "Enter"){
+            this.handleAddTask()
+        }
+    }
     render() {
         const { tasks } = this.state
         const taskCss = `${classes.tacheCss} table table-striped table-dark`
         return (
             <div className="container taskPolice">
                 <Imput 
-                value={this.state.tacheSaisie}
+                 value={this.state.tacheSaisie}
                 changeName={(event)=>this.setState({tacheSaisie:event.target.value})}
+                onkey ={this.handleKeyDown}
                 />
                 <Bouton
                  click ={this.handleAddTask}
@@ -78,10 +91,7 @@ class Tasks extends Component {
                                      supprimer={()=>this.handleDeletTask(t.id)}
                                     />
                                  </tr>
-                                // <tr key={t.id}>
-                                //     <td>{t.nom}</td>
-                                //     <td>{t.unite}</td>
-                                // </tr>
+                               
                             )
                         })}
 
